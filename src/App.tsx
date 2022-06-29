@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import styled from 'styled-components'
+import './App.css'
+import { Logo } from './components/Logo';
+import { Select } from './pages/Select';
+import { Setup } from './pages/Setup';
+
+enum Pages {
+  SETUP = 'setup',
+  SELECT = 'select'
+}
 
 function App() {
+
+  const [page, setPage] = useState<Pages>(Pages.SETUP)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper>
+      <Logo />
+      {page === Pages.SETUP && (
+        <Setup 
+          changePage={() => {
+            setPage(Pages.SELECT)
+          }} 
+        />
+      )}
+      {page === Pages.SELECT && (
+        <Select 
+          changePage={() => {
+            setPage(Pages.SETUP)
+          }} 
+        />
+      )}
+    </Wrapper>
   );
 }
 
 export default App;
+
+const Wrapper = styled.div``
