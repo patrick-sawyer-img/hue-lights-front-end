@@ -39,7 +39,7 @@ export function Action({
 
   useEffect(() => {
     if (state === States.LOADING) {
-      setCurrentText('Loading...')
+      setCurrentText('Loading')
     }
   }, [state])
 
