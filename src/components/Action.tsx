@@ -89,7 +89,6 @@ export const Button = styled.span<{
     background: transparent;
     color: #f06407;
     box-sizing: border-box;
-    box-shadow: 0 0 2px 0 rgba(0,0,0,0.7);
 
     &:hover {
       color: white;
