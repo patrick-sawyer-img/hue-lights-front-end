@@ -2,8 +2,8 @@ body {
   background-image: url("./assets/tennis5.jpeg");
   background-color: hsl(0, 0%, 80%);
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat:repeat-y;
   background-position: center;
   height: 100vh;
-  font-family: Helvetica;
+  font-family: Arial, Helvetica, sans-serif
 }

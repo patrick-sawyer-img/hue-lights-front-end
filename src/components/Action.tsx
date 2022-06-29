@@ -28,7 +28,6 @@ export function Action({
 
   const [currentText, setCurrentText] = useState<string>(text)
   const [state, setState] = useState<States>(States.IDLE)
-  const [textColor, setTextColor] = useState('#c26223')
 
   const handleClick = async () => {
     if (state !== States.IDLE || disabled) return
@@ -39,16 +38,8 @@ export function Action({
   }
 
   useEffect(() => {
-    if (state === States.FAILED) {
-      setTextColor('red')
-      return;
-    }
-    if (state === States.SUCCESS) {
-      setTextColor('#f06407;')
-      return;
-    }
     if (state === States.LOADING) {
-      setCurrentText('Loading')
+      setCurrentText('Loading...')
     }
   }, [state])
 
@@ -58,7 +49,6 @@ export function Action({
       onClick={handleClick}
     >
       <Text 
-        color={textColor} 
         active={state === States.IDLE && !disabled}
       >
         {currentText}
@@ -75,24 +65,34 @@ const Wrapper = styled.div<{
   align-items: center;
   justify-content: center;
   height: 50px;
+  transition: 0.3s;
   text-align: center;
 `
 
 const Text = styled.span<{
   active: boolean;
-  color: string;
 }>`
-  font-size: 22px;
+  font-size: 18px;
   flex: 1;
   white-space: nowrap;
   text-align: center;
-  color: ${({ color }) => color};
+  color: #f06407;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  display: flex;
+  height: 35px;
 
   ${({ active }) => active && `
     cursor: pointer;
+    background: white;
+    box-sizing: border-box;
+    border-radius: 20px;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.5);
 
     &:hover {
-      color: #f06407;
+      color: white;
+      background: #d43d0b;
     }
   `}
 `

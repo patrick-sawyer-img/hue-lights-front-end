@@ -1,18 +1,32 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components'
 import './App.css'
 import { Logo } from './components/Logo';
+import { MatchType } from './components/Match';
 import { Select } from './pages/Select';
 import { Setup } from './pages/Setup';
 
-enum Pages {
+export const API = 'http://sarco.dyndns.org:8888/dde/'
+
+export enum Pages {
   SETUP = 'setup',
   SELECT = 'select'
 }
 
 function App() {
 
-  const [page, setPage] = useState<Pages>(Pages.SELECT)
+  const [page, setPage] = useState<Pages>(Pages.SETUP)
+  const [matches, setMatches] = useState<MatchType[]>([])
+
+  const getMatches = () => {
+    fetch(API + 'matches')
+    .then(response => response.json())
+    .then(data => setMatches(data));
+  }
+
+  useEffect(() => {
+    getMatches()
+  }, [])
 
   return (
     <Wrapper>
@@ -25,7 +39,8 @@ function App() {
         />
       )}
       {page === Pages.SELECT && (
-        <Select 
+        <Select
+          matches={matches}
           changePage={() => {
             setPage(Pages.SETUP)
           }} 
@@ -37,4 +52,7 @@ function App() {
 
 export default App;
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+  background-color: rgba(0,0,0,0.7);
+  min-height: 100vh;
+`

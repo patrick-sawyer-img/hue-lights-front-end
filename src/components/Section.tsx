@@ -1,21 +1,25 @@
 import styled from "styled-components"
 
 interface Props {
-  children: JSX.Element
+  children: JSX.Element;
+  opacity?: string;
 }
 
 export function Section({
-  children
+  children,
+  opacity = '0.9'
 }: Props) {
   return (
-    <Wrapper>
+    <Wrapper opacity={opacity}>
       {children}
     </Wrapper>
   )
 }
 
-const Wrapper = styled.div`
-  background: rgba(255, 255, 255, 0.9);
+const Wrapper = styled.div<{
+  opacity: string;
+}>`
+  background: rgba(255, 255, 255, ${({ opacity }) => opacity});
   padding: 7px 15px;
   margin-bottom: 20px;
   min-width: 60px;

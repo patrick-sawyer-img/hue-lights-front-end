@@ -1,5 +1,6 @@
 import { useState } from "react"
 import styled from "styled-components"
+import { Pages } from "../App"
 import { Action } from "../components/Action"
 import { Section } from "../components/Section"
 import { Title } from "../components/Title"
@@ -37,6 +38,7 @@ export function Setup({
     await wait(2000)
     const lights = ['1','2','3'] // API Response
     setStep(3)
+    changePage()
     return {
       success: true,
       response:`Found ${lights.length + 1} lights`
