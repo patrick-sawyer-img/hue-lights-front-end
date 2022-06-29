@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { Player, PlayerType } from "./Player";
 
-interface TeamType {
+export interface TeamType {
   status: string;
   team: {
     player1: PlayerType;
@@ -78,7 +78,6 @@ const Wrapper = styled.div`
   padding: 10px;
   color: rgba(255,255,255,0.9);
   background-color: #702400;
-  border-radius: 4px;
   cursor: pointer;
   overflow: hidden;
   box-shadow: 0 0 6px 0 rgba(0,0,0,0.6);
@@ -105,7 +104,7 @@ const Team = styled.div<{
 
 const Versus = styled.span`
   margin: 20px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 100;
   opacity: 0.5;
 `

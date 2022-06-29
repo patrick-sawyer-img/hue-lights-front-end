@@ -84,7 +84,7 @@ const Matches = styled.div`
   gap: 15px;
   padding: 8px 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
 `
 
 const Body = styled.div`

@@ -88,7 +88,6 @@ const Text = styled.span<{
     background: white;
     color: #f06407;
     box-sizing: border-box;
-    border-radius: 20px;
     box-shadow: 0 0 2px 0 rgba(0,0,0,0.5);
 
     &:hover {

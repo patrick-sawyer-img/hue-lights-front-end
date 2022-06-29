@@ -39,7 +39,7 @@ const FirstName = styled.span`
 `
 
 const Wrapper = styled.p`
-  font-size: 12px;
+  font-size: 14px;
   text-overflow: ellipsis;
   width: 100%;
   overflow: hidden;
