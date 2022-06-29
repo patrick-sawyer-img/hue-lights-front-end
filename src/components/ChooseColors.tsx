@@ -41,6 +41,7 @@ export function ChooseColors({
           onColorChange('p1Colour', color)
         }}
       />
+      <Versus>{'Vs.'}</Versus>
       <ChooseTeamColor
         teamInfo={match?.teamB}
         color={data.p2Colour}
@@ -64,18 +65,12 @@ const Wrapper = styled.div`
   gap: 50px;
 `
 
-// const Button = styled.span`
-//   color: white;
-//   font-size: 18px;
-//   opacity: 0.7;
-//   cursor: pointer;
-//   position: relative;
-//   bottom: 10px;
-
-//   &:hover {
-//     opacity: 1;
-//   }
-// `
+const Versus = styled.span`
+  color: white;
+  opacity: 0.8;
+  font-size: 20px;
+  font-weight: bold;
+`
 
 const Buttons = styled.div`
   display: flex;
