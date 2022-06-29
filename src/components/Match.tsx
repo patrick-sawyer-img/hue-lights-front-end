@@ -78,6 +78,7 @@ const Wrapper = styled.div`
   padding: 10px;
   color: rgba(255,255,255,0.9);
   background-color: #702400;
+  border-radius: 2px;
   cursor: pointer;
   overflow: hidden;
   box-shadow: 0 0 6px 0 rgba(0,0,0,0.6);

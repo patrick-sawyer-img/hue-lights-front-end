@@ -48,11 +48,11 @@ export function Action({
       disabled={disabled} 
       onClick={handleClick}
     >
-      <Text 
+      <Button 
         active={state === States.IDLE && !disabled}
       >
         {currentText}
-      </Text>
+      </Button>
     </Wrapper>
   )
 }
@@ -69,26 +69,27 @@ const Wrapper = styled.div<{
   text-align: center;
 `
 
-const Text = styled.span<{
+export const Button = styled.span<{
   active: boolean;
 }>`
   font-size: 18px;
   flex: 1;
   white-space: nowrap;
   text-align: center;
-  color: #2b2b2b;
+  color: #2e2e2e;
+  border-radius: 2px;
   align-items: center;
   justify-content: center;
-  width: 150px;
+  width: 200px;
   display: flex;
   height: 35px;
 
   ${({ active }) => active && `
     cursor: pointer;
-    background: white;
+    background: transparent;
     color: #f06407;
     box-sizing: border-box;
-    box-shadow: 0 0 2px 0 rgba(0,0,0,0.5);
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.7);
 
     &:hover {
       color: white;

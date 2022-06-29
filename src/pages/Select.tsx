@@ -1,5 +1,6 @@
-import { Fragment, useEffect, useRef, useState } from "react"
+import { useState } from "react"
 import styled from "styled-components"
+import { API } from "../App"
 import { ChooseColors } from "../components/ChooseColors"
 import { Match, MatchType } from "../components/Match"
 import { Section } from "../components/Section"
@@ -12,8 +13,14 @@ interface Props {
 
 export type ColorData = {
   eventId: string | null;
-  p1color: string | null;
-  p2color: string | null;
+  p1Colour: string;
+  p2Colour: string;
+}
+
+export const INIT_DATA = {
+  eventId: null,
+  p1Colour: "#00ffdd",
+  p2Colour: "#cc00ff",
 }
 
 export function Select({
@@ -21,27 +28,32 @@ export function Select({
   matches,
 }: Props) {
 
-  const [data, setData] = useState<ColorData>({
-    eventId: null,
-    p1color: null,
-    p2color: null,
-  })
+  const [data, setData] = useState<ColorData>(INIT_DATA)
 
-  const postColors = () => {
-    //post to /subscribe with data.current
-    // {
-    //   "eventId" : "xxxxxx",
-    //   "p1colour" : "#ffffff",
-    //   "p2colour" : "#ffffff"
-    // }
+  const postColors = async () => {
+    if (data.eventId && data.p1Colour && data.p2Colour) {
+      fetch(API + 'subscribe/', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+      .then((response) => {
+        console.log(response)
+        // WHAT DO WE WANT TO DO AFTER SUCCESS
+      })
+      .catch((response) => {
+        console.log(response)
+        // WHAT DO WE WANT TO DO AFTER FAILURE
+      })
+    }
   }
 
   const selectMatch = (eventId: string) => {
-    setData({
-      eventId,
-      p1color: null,
-      p2color: null,
-    })
+    const nextData = {...data}
+    nextData.eventId = eventId
+    setData(nextData)
   }
 
   return (
@@ -52,10 +64,11 @@ export function Select({
       <Body>
         {data.eventId ? 
           (
-            <ChooseColors 
+            <ChooseColors
               setData={setData}
               data={data}
               match={matches.find((match) => match.eventId === data.eventId)}
+              onSubmit={postColors}
             />
           ) : (
             <Matches>
