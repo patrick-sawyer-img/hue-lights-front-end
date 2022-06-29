@@ -76,7 +76,7 @@ const Text = styled.span<{
   flex: 1;
   white-space: nowrap;
   text-align: center;
-  color: #f06407;
+  color: #2b2b2b;
   align-items: center;
   justify-content: center;
   width: 150px;
@@ -86,6 +86,7 @@ const Text = styled.span<{
   ${({ active }) => active && `
     cursor: pointer;
     background: white;
+    color: #f06407;
     box-sizing: border-box;
     border-radius: 20px;
     box-shadow: 0 0 2px 0 rgba(0,0,0,0.5);
