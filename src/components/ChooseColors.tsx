@@ -27,7 +27,9 @@ export function ChooseColors({
   }
 
   const goBack = () => {
-    setData(INIT_DATA)
+    const nextData = {...data}
+    nextData.eventId = null
+    setData(nextData)
   }
 
   return (

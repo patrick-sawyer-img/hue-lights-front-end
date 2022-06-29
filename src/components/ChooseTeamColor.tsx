@@ -25,8 +25,8 @@ export function ChooseTeamColor({
       <Section marginBottom={'0'}>
         <Fragment>
           {teamInfo?.team?.player1 && <Player {...teamInfo?.team.player1} />}
+          {teamInfo?.team?.player2 && <Player {...teamInfo?.team.player2} />}
           <Input onChange={handleChange} type="color" value={color} />
-          {teamInfo?.team?.player2 && <Player textAlign={'right'} {...teamInfo?.team.player2} />}
         </Fragment>
       </Section>
     </Wrapper>
@@ -43,6 +43,9 @@ const Wrapper = styled.div`
 
 const Input = styled.input`
   cursor: pointer;
+  width: 80px;
+  height: 30px;
+  margin-left: 15px;
 
   &:hover {
     border: 1px solid pink;

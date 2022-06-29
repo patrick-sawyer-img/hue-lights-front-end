@@ -5,7 +5,6 @@ export interface PlayerType {
   firstName: string;
   lastName: string;
   country: string;
-  textAlign?: string;
 }
 
 export function Player({
@@ -13,10 +12,9 @@ export function Player({
   firstName,
   lastName,
   country,
-  textAlign,
 }: PlayerType) {
   return (
-    <Wrapper textAlign={textAlign}>
+    <Wrapper>
       <LastName>
         {lastName.toUpperCase() + ','}
       </LastName>
@@ -40,16 +38,13 @@ const FirstName = styled.span`
   opacity: 0.7;
 `
 
-const Wrapper = styled.p<{
-  textAlign?: string;
-}>`
+const Wrapper = styled.p`
   font-size: 14px;
   text-overflow: ellipsis;
   width: 100%;
   overflow: hidden;
   margin: 0;
   padding: 0;
-  ${({ textAlign }) => textAlign && `text-align: ${textAlign};`}
 `
 
 const Country = styled.span`
