@@ -46,11 +46,12 @@ export function Select({
 
   return (
     <Wrapper>
-      <Section>
+      <Section marginBottom="10px">
         <Title text={data.eventId ? "Select a colour for each team" : "Today's live tennis matches"} />
       </Section>
       <Body>
-        {data.eventId ? (
+        {data.eventId ? 
+          (
             <ChooseColors 
               setData={setData}
               data={data}
@@ -58,16 +59,16 @@ export function Select({
             />
           ) : (
             <Matches>
-            {matches?.map((match) => {
-              return (
-                <Match 
-                  {...match} 
-                  key={match.eventId} 
-                  onClick={selectMatch} 
-                />
-              )
-            })}
-          </Matches>
+              {matches?.map((match) => {
+                return (
+                  <Match 
+                    {...match} 
+                    key={match.eventId} 
+                    onClick={selectMatch} 
+                  />
+                )
+              })}
+            </Matches>
           )}
       </Body>
     </Wrapper>
