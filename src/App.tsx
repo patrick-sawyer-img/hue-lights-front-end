@@ -12,7 +12,7 @@ enum Pages {
 
 function App() {
 
-  const [page, setPage] = useState<Pages>(Pages.SETUP)
+  const [page, setPage] = useState<Pages>(Pages.SELECT)
 
   return (
     <Wrapper>
