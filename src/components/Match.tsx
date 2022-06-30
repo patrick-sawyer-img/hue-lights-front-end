@@ -73,7 +73,8 @@ const Body = styled.div`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  border: 2px solid ${COLORS.green1};
+
+  border: 2px solid black;
   min-height: 50px;
   align-items: center;
   padding: 10px;
@@ -83,11 +84,10 @@ const Wrapper = styled.div`
   cursor: pointer;
   overflow: hidden;
   box-shadow: 0 0 6px 0 rgba(0,0,0,0.6);
-  transition: 0.3s;
+  transition: 0.1s;
 
   &:hover {
     border: 2px solid white;
-
   }
 
   &:active {
@@ -108,14 +108,14 @@ const Team = styled.div<{
 const Versus = styled.span`
   margin: 0 10px;
   font-size: 14px;
-  color: grey;
+  color: #2e2e2e;
 `
 
 const Header = styled.div`
   display: flex;
   padding-bottom: 8px;
   font-size: 13px;
-  color: grey;
+  color: #2e2e2e;
   font-weight: 300;
   margin-bottom: 10px;
   border-bottom: 1px solid rgba(138, 158, 128, 0.2);

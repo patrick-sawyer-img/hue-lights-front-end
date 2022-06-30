@@ -13,7 +13,7 @@ interface Props {
 interface Light {
   name: string;
   number: number;
-  id: string;
+  uniqueId: string;
 }
 
 export function Setup({
@@ -26,6 +26,7 @@ export function Setup({
     const response = await fetch(API + 'hue/lights')
     .then(data => data.json())
     const data: Light[]= Object.values(response)
+    console.log(data)
     setLights(data)
 
     return {
@@ -34,8 +35,23 @@ export function Setup({
     }
   }
 
-  const selectLight = async () => {
-    changePage()
+  const selectLight = async (data: Light) => {
+    await fetch(API + 'hue/lights', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+    .then((response) => {
+      console.log(response)
+      changePage()
+    })
+    .catch((response) => {
+      console.log(response)
+      // WHAT DO WE WANT TO DO AFTER FAILURE
+    })
+
     return {
       success: true,
       response: 'Selected'
@@ -57,13 +73,16 @@ export function Setup({
             <>
               <Line />
               <Lights>
-                {lights.map(({ name }) => {
+                {lights.map(({ name, number, uniqueId }) => {
                   return (
                     <Action 
                       text={name}
-                      bold
                       key={name}
-                      onClick={selectLight} 
+                      onClick={async () => {
+                        return await selectLight({
+                          number, name, uniqueId
+                        })
+                      }} 
                     />
                   )
                 })}

@@ -22,9 +22,9 @@ export function Player({
       <FirstName>
         {` ${firstName}`}
       </FirstName>
-      <br />
+
       <Country>
-        {` ${country}`}
+        {` (${country})`}
       </Country>
     </Wrapper>
   )
@@ -40,20 +40,20 @@ const FirstName = styled.span`
 `
 
 const Wrapper = styled.p`
-  font-size: 14px;
+  font-size: 16px;
   text-overflow: ellipsis;
   width: 100%;
   overflow: hidden;
   margin: 0;
   color: #2f2f3d;
   padding: 0;
-  color: ${COLORS.green5};
+  color: black;
 `
 
 const Country = styled.span`
   font-weight: 100;
-  opacity: 0.7;
   font-size: 12px;
-  margin-top: 3px;
-  color: grey;
+  opacity: 0.4;
+  color: #2e2e2e;
+
 `

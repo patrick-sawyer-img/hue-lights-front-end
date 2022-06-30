@@ -98,12 +98,12 @@ export const Button = styled.span<{
 
 
   &:hover {
-    color: ${COLORS.green5};
+    color: black;
     background: white;
   }
 
   &:active {
     color: white;
-    background: ${COLORS.green5};
+    background: black;
   }
 `

@@ -32,12 +32,13 @@ export function Select({
 
   const postColors = async () => {
     if (data.eventId && data.p1Colour && data.p2Colour) {
-      fetch(API + 'subscribe/', {
+      fetch(API + 'subscribe', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
           'Content-Type': 'application/json'
         },
+        mode: 'cors'
       })
       .then((response) => {
         console.log(response)
@@ -58,11 +59,12 @@ export function Select({
 
   const singles = matches?.filter((match) => !match.teamA.team.player2)
   const doubles = matches?.filter((match) => !!match.teamA.team.player2)
+  const selectedMatch = matches.find((match) => match.eventId === data.eventId)
 
   return (
     <Wrapper>
       <Section marginBottom="10px">
-        <Title text={data.eventId ? "Select a colour for each team" : "Today's live tennis matches"} />
+        <Title text={data.eventId ? `Select a colour for each ${selectedMatch?.teamA.team.player2 ? 'team' : 'player'}` : "Today's live tennis matches"} />
       </Section>
       <Body>
         {data.eventId ? 
@@ -70,7 +72,7 @@ export function Select({
             <ChooseColors
               setData={setData}
               data={data}
-              match={matches.find((match) => match.eventId === data.eventId)}
+              match={selectedMatch}
               onSubmit={postColors}
             />
           ) : (

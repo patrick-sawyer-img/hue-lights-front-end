@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components"
 import { COLORS } from "../colors";
 
@@ -77,7 +77,7 @@ export const Button = styled.span<{
   flex: 1;
   white-space: nowrap;
   text-align: center;
-  color: ${COLORS.green5};
+  color: black;
   border-radius: 2px;
   align-items: center;
   justify-content: center;
@@ -92,11 +92,12 @@ export const Button = styled.span<{
 
     &:hover {
       color: white;
-      background: ${COLORS.green5};
+      background: black;
     }
 
     &:active {
-      opacity: 0.1;
+      background: transparent;
+      color: black;
     }
   `}
 `

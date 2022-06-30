@@ -12,8 +12,8 @@ export function Title({
 }
 
 const Text = styled.div`
-  font-size: 20px;
-  color: ${COLORS.green5};
+  font-size: 22px;
+  color: black;
   padding: 10px;
   text-align: center;
 `

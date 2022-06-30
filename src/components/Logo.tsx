@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import image from '../assets/img2.png'
+import image from '../assets/img1.png'
 export function Logo() {
   return (
     <Wrapper>

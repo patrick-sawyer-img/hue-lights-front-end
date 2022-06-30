@@ -23,7 +23,7 @@ export function ChooseTeamColor({
 
   return (
     <Wrapper>
-      <Section marginBottom={'0'}>
+      <Section marginBottom={'0'} padding={'20px'}>
         <Fragment>
           {teamInfo?.team?.player1 && <Player {...teamInfo?.team.player1} />}
           {teamInfo?.team?.player2 && <Player {...teamInfo?.team.player2} />}
@@ -39,7 +39,7 @@ const Wrapper = styled.div`
   box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.8);
   border-radius: 2px;
   overflow: hidden;
-
+  border: 2px solid black;
 `
 
 const Input = styled.input`
