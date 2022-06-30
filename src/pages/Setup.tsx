@@ -25,7 +25,6 @@ export function Setup({
     const response = await fetch(API + 'hue/lights')
     .then(data => data.json())
     const data: Light[]= Object.values(response)
-    console.log(data)
     setLights(data)
 
     return {

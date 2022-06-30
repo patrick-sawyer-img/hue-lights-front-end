@@ -80,7 +80,7 @@ export function Select({
           ) : (
             <>
               <ButtonWrapper>
-                <Button active onChange={changeScreen}>
+                <Button active onClick={changeScreen}>
                   {'Choose another light'}
                 </Button>
               </ButtonWrapper>
