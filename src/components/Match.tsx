@@ -73,7 +73,6 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  border: 2px solid black;
   min-height: 50px;
   align-items: center;
   padding: 10px;
@@ -86,7 +85,8 @@ const Wrapper = styled.div`
   transition: 0.1s;
 
   &:hover {
-    border: 2px solid white;
+    outline: 1px solid white;
+    background-color: white;
   }
 
   &:active {
