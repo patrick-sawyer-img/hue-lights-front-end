@@ -72,7 +72,7 @@ const Body = styled.div`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-
+  transition: 0.3s;
   min-height: 50px;
   align-items: center;
   padding: 10px;

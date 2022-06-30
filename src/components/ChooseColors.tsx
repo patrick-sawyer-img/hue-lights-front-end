@@ -92,6 +92,7 @@ export const Button = styled.span<{
   line-height: 35px;
   cursor: pointer;
   background: transparent;
+  transition: 0.3s;
   color: white;
   box-sizing: border-box;
 

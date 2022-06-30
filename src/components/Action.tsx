@@ -63,7 +63,6 @@ const Wrapper = styled.div<{
   align-items: center;
   justify-content: center;
   min-width: 200px;
-  transition: 0.3s;
   text-align: center;
 
 `
@@ -77,6 +76,7 @@ export const Button = styled.span<{
   text-align: center;
   color: black;
   border-radius: 2px;
+  transition: 0.3s;
   align-items: center;
   justify-content: center;
   width: 200px;
