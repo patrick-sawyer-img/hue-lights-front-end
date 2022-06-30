@@ -108,7 +108,7 @@ const InnerWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 20px;
+  margin: 15px;
   gap: 20px;
   width: 100%;
 `

@@ -12,8 +12,9 @@ export function Title({
 }
 
 const Text = styled.div`
-  font-size: 22px;
+  font-size: 24px;
   color: black;
+  font-weight: bold;
   padding: 10px;
   text-align: center;
 `
