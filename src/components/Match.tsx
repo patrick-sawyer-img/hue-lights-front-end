@@ -56,7 +56,7 @@ export function Match({
         </Versus>
         <Team align={'right'}>
           <Player {...teamB.team.player1} />
-          {teamA.team.player2 && <Player {...teamA.team.player2} />}
+          {teamB.team.player2 && <Player {...teamB.team.player2} />}
         </Team>
       </Body>
     </Wrapper>

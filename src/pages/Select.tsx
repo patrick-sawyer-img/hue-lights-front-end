@@ -1,13 +1,14 @@
 import { useState } from "react"
 import styled from "styled-components"
 import { API } from "../App"
-import { ChooseColors } from "../components/ChooseColors"
+import { Button, ChooseColors } from "../components/ChooseColors"
 import { Match, MatchType } from "../components/Match"
 import { Section } from "../components/Section"
 import { Title } from "../components/Title"
 
 interface Props {
   matches: MatchType[];
+  changeScreen: () => void;
 }
 
 export type ColorData = {
@@ -24,6 +25,7 @@ export const INIT_DATA = {
 
 export function Select({
   matches,
+  changeScreen
 }: Props) {
 
   const [data, setData] = useState<ColorData>(INIT_DATA)
@@ -77,6 +79,9 @@ export function Select({
             />
           ) : (
             <>
+              <Button active onClick={changeScreen}>
+                {'Choose another light'}
+              </Button>
               <Header>
                 {'Singles Matches'}
               </Header>
@@ -130,6 +135,10 @@ const Matches = styled.div`
 `
 
 const Body = styled.div`
-  margin: 0 15px;
-  padding-bottom: 15px;
+  margin: 35px 15px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 `

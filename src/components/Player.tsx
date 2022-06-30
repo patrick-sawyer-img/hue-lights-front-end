@@ -21,7 +21,6 @@ export function Player({
       <FirstName>
         {` ${firstName}`}
       </FirstName>
-
       <Country>
         {` (${country})`}
       </Country>

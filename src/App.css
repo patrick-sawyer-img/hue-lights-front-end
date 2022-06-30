@@ -2,12 +2,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  height: 100vw;
-  background-image: linear-gradient(rgba(0,0,0,0.2), black), url("./assets/grass5.jpeg");
   background-color: black;
-  background-size: cover;
+  background-image: linear-gradient(rgba(0,0,0,0.2), black), url("./assets/grass5.jpeg");
+  background-size: 100vw 100vh;
   background-repeat: no-repeat;
-  background-position: center;
 }
 
 ::-webkit-scrollbar {

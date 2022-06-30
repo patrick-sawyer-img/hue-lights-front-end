@@ -45,6 +45,9 @@ function App() {
       {page === Pages.SELECT && (
         <Select
           matches={matches}
+          changeScreen={() => {
+            setPage(Pages.SETUP)
+          }}
         />
       )}
     </Wrapper>
