@@ -34,17 +34,17 @@ export function ChooseTeamColor({
 }
 
 const Wrapper = styled.div`
-  min-width: 600px;
-  box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.8);
+  min-width: 800px;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 1);
   border-radius: 2px;
   overflow: hidden;
-  border: 2px solid black;
 `
 
 const Input = styled.input`
   cursor: pointer;
   width: 80px;
   height: 30px;
+  
   margin-left: 15px;
 
   &:hover {
