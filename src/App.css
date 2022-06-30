@@ -2,8 +2,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  height: 100vh;
-  background-image: linear-gradient(rgba(0,0,0,0.4), black), url("./assets/grass5.jpeg");
+  height: 100vw;
+  background-image: linear-gradient(rgba(0,0,0,0.2), black), url("./assets/grass5.jpeg");
   background-color: black;
   background-size: cover;
   background-repeat: no-repeat;
