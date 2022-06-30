@@ -5,6 +5,7 @@ import { Button, ChooseColors } from "../components/ChooseColors"
 import { Match, MatchType } from "../components/Match"
 import { Section } from "../components/Section"
 import { Title } from "../components/Title"
+import hexToHsl from 'hex-to-hsl'
 
 interface Props {
   matches: MatchType[];
@@ -32,9 +33,18 @@ export function Select({
 
   const postColors = async () => {
     if (data.eventId && data.p1Colour && data.p2Colour) {
+
+      const parsedData = {
+        eventId: data.eventId,
+        p1Colour: hexToHsl(data.p1Colour),
+        p2Colour: hexToHsl(data.p2Colour),
+      }
+
+      console.log(parsedData)
+      
       fetch(API + 'dde/subscribe', {
         method: 'POST',
-        body: JSON.stringify(data),
+        body: JSON.stringify(parsedData),
         headers: {
           'Content-Type': 'application/json'
         },
