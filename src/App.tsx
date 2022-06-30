@@ -17,7 +17,7 @@ function App() {
 
   const [page, setPage] = useState<Pages>(Pages.SETUP)
   const [matches, setMatches] = useState<MatchType[]>([])
-
+  
   const getMatches = () => {
     fetch(API + 'dde/matches')
     .then(response => response.json())

@@ -79,35 +79,40 @@ export function Select({
             />
           ) : (
             <>
-              <Button active onClick={changeScreen}>
-                {'Choose another light'}
-              </Button>
+              <ButtonWrapper>
+                <Button active onChange={changeScreen}>
+                  {'Choose another light'}
+                </Button>
+              </ButtonWrapper>
+
               <Header>
                 {'Singles Matches'}
               </Header>
-              <Matches>
-                {singles?.map((match) => {
-                  return (
-                    <Match
-                      {...match}
-                      key={match.eventId}
-                      onClick={selectMatch} />
-                  )
-                })}
-              </Matches>
-              <Header>
-                {'Doubles Matches'}
-              </Header>
-              <Matches>
-                {doubles?.map((match) => {
-                  return (
-                    <Match
-                      {...match}
-                      key={match.eventId}
-                      onClick={selectMatch} />
-                  )
-                })}
-              </Matches>
+              <AllMatches>
+                <Matches>
+                  {singles?.map((match) => {
+                    return (
+                      <Match
+                        {...match}
+                        key={match.eventId}
+                        onClick={selectMatch} />
+                    )
+                  })}
+                </Matches>
+                <Header>
+                  {'Doubles Matches'}
+                </Header>
+                <Matches>
+                  {doubles?.map((match) => {
+                    return (
+                      <Match
+                        {...match}
+                        key={match.eventId}
+                        onClick={selectMatch} />
+                    )
+                  })}
+                </Matches>
+              </AllMatches>
             </>
         )}
       </Body>
@@ -129,16 +134,27 @@ const Wrapper = styled.div`
 
 const Matches = styled.div`
   width: 100%;
-  gap: 15px;
+
   display: grid;
+  gap: 10px;
   grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
 `
 
+const AllMatches = styled.div`
+
+width: calc(100% - 30px);
+`
+
 const Body = styled.div`
-  margin: 35px 15px;
+
+  padding-bottom: 15px;
   width: 100%;
   align-items: center;
   justify-content: center;
   display: flex;
   flex-direction: column;
+`
+
+const ButtonWrapper = styled.div`
+  margin-top: 25px;
 `

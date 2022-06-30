@@ -3,7 +3,7 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
   background-color: black;
-  background-image: linear-gradient(rgba(0,0,0,0.2), black), url("./assets/grass5.jpeg");
+  background-image: linear-gradient(rgba(0,0,0,0.2), black), url("./assets/grass2.png");
   background-size: 100vw 100vh;
   background-repeat: no-repeat;
 }
