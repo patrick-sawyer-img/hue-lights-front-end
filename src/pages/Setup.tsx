@@ -1,7 +1,6 @@
 import { useState } from "react"
 import styled from "styled-components"
 import { API } from "../App"
-import { COLORS } from "../colors"
 import { Action } from "../components/Action"
 import { Section } from "../components/Section"
 import { Title } from "../components/Title"

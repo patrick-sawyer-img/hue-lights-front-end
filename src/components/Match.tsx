@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { COLORS } from "../colors";
 import { Player, PlayerType } from "./Player";
 
 export interface TeamType {

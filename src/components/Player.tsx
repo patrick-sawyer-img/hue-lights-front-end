@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { COLORS } from "../colors";
 
 export interface PlayerType {
   id: string;

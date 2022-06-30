@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { COLORS } from "../colors";
 import { ColorData } from "../pages/Select"
 import { ChooseTeamColor } from "./ChooseTeamColor";
 import { MatchType } from "./Match";

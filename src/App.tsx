@@ -54,6 +54,5 @@ function App() {
 export default App;
 
 const Wrapper = styled.div`
-  background: linear-gradient(rgba(0,0,0,0.4), black);
   min-height: 100vh;
 `

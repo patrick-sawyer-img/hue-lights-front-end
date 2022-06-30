@@ -1,6 +1,5 @@
 import { Fragment } from "react";
 import styled from "styled-components"
-import { COLORS } from "../colors";
 import { TeamType } from "./Match";
 import { Player } from "./Player";
 import { Section } from "./Section";
