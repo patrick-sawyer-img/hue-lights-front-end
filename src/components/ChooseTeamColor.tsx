@@ -35,7 +35,7 @@ export function ChooseTeamColor({
 
 const Wrapper = styled.div`
   min-width: 800px;
-  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 1);
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.7);
   border-radius: 2px;
   overflow: hidden;
 `
