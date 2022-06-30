@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components"
+import { COLORS } from "../colors";
 
 export interface Api {
   success: boolean;
@@ -10,7 +11,7 @@ interface Props {
   text: string;
   onClick: () => Promise<Api>;
   disabled?: boolean;
-  onLoadText?: string;
+  bold?: boolean;
 }
 
 enum States {
@@ -23,7 +24,8 @@ enum States {
 export function Action({
   text,
   onClick,
-  disabled = false
+  disabled = false,
+  bold = false,
 }: Props) {
 
   const [currentText, setCurrentText] = useState<string>(text)
@@ -32,19 +34,15 @@ export function Action({
   const handleClick = async () => {
     if (state !== States.IDLE || disabled) return
     setState(States.LOADING)
+    setCurrentText('')
     const { response, success } = await onClick()
     setCurrentText(response)
     setState(success ? States.SUCCESS : States.FAILED)
   }
 
-  useEffect(() => {
-    if (state === States.LOADING) {
-      setCurrentText('Loading')
-    }
-  }, [state])
-
   return (
-    <Wrapper 
+    <Wrapper
+      bold={bold}
       disabled={disabled} 
       onClick={handleClick}
     >
@@ -59,14 +57,17 @@ export function Action({
 
 const Wrapper = styled.div<{
   disabled?: boolean;
+  bold?: boolean;
 }>`
   display: flex;
   ${({disabled}) => disabled && 'opacity: 0.2;'}
+  ${({bold}) => bold && 'font-weight: bold;'}
   align-items: center;
   justify-content: center;
-  height: 50px;
+  min-width: 200px;
   transition: 0.3s;
   text-align: center;
+
 `
 
 export const Button = styled.span<{
@@ -76,7 +77,7 @@ export const Button = styled.span<{
   flex: 1;
   white-space: nowrap;
   text-align: center;
-  color: #2e2e2e;
+  color: ${COLORS.green5};
   border-radius: 2px;
   align-items: center;
   justify-content: center;
@@ -87,12 +88,15 @@ export const Button = styled.span<{
   ${({ active }) => active && `
     cursor: pointer;
     background: transparent;
-    color: #f06407;
     box-sizing: border-box;
 
     &:hover {
       color: white;
-      background: #d43d0b;
+      background: ${COLORS.green5};
+    }
+
+    &:active {
+      opacity: 0.1;
     }
   `}
 `

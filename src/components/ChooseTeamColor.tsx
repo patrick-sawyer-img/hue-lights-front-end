@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import styled from "styled-components"
+import { COLORS } from "../colors";
 import { TeamType } from "./Match";
 import { Player } from "./Player";
 import { Section } from "./Section";
@@ -35,10 +36,10 @@ export function ChooseTeamColor({
 
 const Wrapper = styled.div`
   min-width: 600px;
-  box-shadow: 0 0 10px 0 rgba(0,0,0,1);
-  border: 3px solid #6e2204;
+  box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.8);
   border-radius: 2px;
-  padding: 5px;
+  overflow: hidden;
+
 `
 
 const Input = styled.input`

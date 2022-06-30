@@ -1,9 +1,18 @@
 body {
-  background-image: url("./assets/tennis5.jpeg");
-  background-color: hsl(0, 0%, 80%);
-  background-size: cover;
-  background-repeat:repeat-y;
-  background-position: center;
+
+
+  font-family: Arial, Helvetica, sans-serif;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
   height: 100vh;
-  font-family: Arial, Helvetica, sans-serif
+  background-image: url("./assets/grass1.jpeg");
+  background-color: black;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

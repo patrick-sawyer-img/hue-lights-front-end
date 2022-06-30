@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { COLORS } from "../colors";
 
 export interface PlayerType {
   id: string;
@@ -44,12 +45,15 @@ const Wrapper = styled.p`
   width: 100%;
   overflow: hidden;
   margin: 0;
+  color: #2f2f3d;
   padding: 0;
+  color: ${COLORS.green5};
 `
 
 const Country = styled.span`
   font-weight: 100;
-  opacity: 0.5;
-  color: #d64d0d;
+  opacity: 0.7;
+  font-size: 12px;
   margin-top: 3px;
+  color: grey;
 `

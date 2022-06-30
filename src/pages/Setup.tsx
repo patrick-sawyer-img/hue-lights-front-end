@@ -1,6 +1,7 @@
 import { useState } from "react"
 import styled from "styled-components"
-import { Pages } from "../App"
+import { API } from "../App"
+import { COLORS } from "../colors"
 import { Action } from "../components/Action"
 import { Section } from "../components/Section"
 import { Title } from "../components/Title"
@@ -9,44 +10,36 @@ interface Props {
   changePage: () => void
 }
 
+interface Light {
+  name: string;
+  number: number;
+  id: string;
+}
+
 export function Setup({
   changePage,
 }: Props) {
 
-  const [step, setStep] = useState(0);
-
-  const discover = async () => {
-    await wait(2000)
-    const ipAddress = '10.14.16.65' // API Response
-    setStep(1)
-    return {
-      success: true,
-      response: `IP Address: ${ipAddress}`
-    }
-  }
-
-  const register = async () => {
-    await wait(2000)
-    setStep(2)
-    return {
-      success: true,
-      response: 'Registered'
-    }
-  }
+  const [lights, setLights] = useState<Light[]>([]);
 
   const findLights = async () => {
-    await wait(2000)
-    const lights = ['1','2','3'] // API Response
-    setStep(3)
-    changePage()
+    const response = await fetch(API + 'hue/lights')
+    .then(data => data.json())
+    const data: Light[]= Object.values(response)
+    setLights(data)
+
     return {
       success: true,
-      response:`Found ${lights.length + 1} lights`
+      response:`Found ${data.length} lights`
     }
   }
 
   const selectLight = async () => {
-    return ''
+    changePage()
+    return {
+      success: true,
+      response: 'Selected'
+    }
   }
 
   return (
@@ -57,40 +50,55 @@ export function Setup({
       <Section>
         <InnerWrapper>
           <Action 
-            text="Discover"
-            onLoadText="Findining hue box"
-            onClick={discover}
-          />
-          <Action 
-            text="Register"
-            onLoadText="Registering with hue box"
-            onClick={register} 
-            disabled={step < 1}
-          />
-          <Action 
             text="Find lights"
-            onLoadText="Finding"
-            onClick={findLights} 
-            disabled={step < 2}
+            onClick={findLights}
           />
+          {!!lights.length && (
+            <>
+              <Line />
+              <Lights>
+                {lights.map(({ name }) => {
+                  return (
+                    <Action 
+                      text={name}
+                      bold
+                      key={name}
+                      onClick={selectLight} 
+                    />
+                  )
+                })}
+              </Lights>
+            </>
+          )}
         </InnerWrapper>
       </Section>
     </Wrapper>
   )
 }
 
-const Wrapper = styled.div``
+const Line = styled.div`
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  width: 50%;
+  margin-bottom: 10px;
+`
+
+const Wrapper = styled.div`
+`
 
 const InnerWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 20px;
+  gap: 20px;
+  width: 100%;
 `
 
-const wait = async (delayInms: number) => {
-  return new Promise(resolve  => {
-    setTimeout(() => {
-      resolve(2);
-    }, delayInms);
-  });
-}
+const Lights = styled.div`
+  width: 100%;
+  max-width: 900px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill,minmax(200px, 1fr));
+`

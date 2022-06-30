@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import { ColorData, INIT_DATA } from "../pages/Select"
-import { Button } from "./Action";
+import { COLORS } from "../colors";
+import { ColorData } from "../pages/Select"
 import { ChooseTeamColor } from "./ChooseTeamColor";
 import { MatchType } from "./Match";
 
@@ -76,4 +76,34 @@ const Buttons = styled.div`
   display: flex;
   gap: 50px;
   margin-top: 50px;
+`
+
+export const Button = styled.span<{
+  active: boolean;
+}>`
+  font-size: 18px;
+  flex: 1;
+  white-space: nowrap;
+  text-align: center;
+  border-radius: 2px;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  display: flex;
+  height: 35px;
+  cursor: pointer;
+  background: transparent;
+  color: white;
+  box-sizing: border-box;
+
+
+  &:hover {
+    color: ${COLORS.green5};
+    background: white;
+  }
+
+  &:active {
+    color: white;
+    background: ${COLORS.green5};
+  }
 `

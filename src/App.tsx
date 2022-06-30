@@ -6,7 +6,7 @@ import { MatchType } from './components/Match';
 import { Select } from './pages/Select';
 import { Setup } from './pages/Setup';
 
-export const API = 'http://sarco.dyndns.org:8888/dde/'
+export const API = 'http://sarco.dyndns.org:8888/'
 
 export enum Pages {
   SETUP = 'setup',
@@ -19,7 +19,7 @@ function App() {
   const [matches, setMatches] = useState<MatchType[]>([])
 
   const getMatches = () => {
-    fetch(API + 'matches')
+    fetch(API + 'dde/matches')
     .then(response => response.json())
     .then(data => setMatches(data));
   }
@@ -53,6 +53,6 @@ function App() {
 export default App;
 
 const Wrapper = styled.div`
-  background-color: rgba(0,0,0,0.7);
+  background: linear-gradient(rgba(0,0,0,0.3), black);
   min-height: 100vh;
 `

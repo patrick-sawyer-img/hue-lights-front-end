@@ -56,6 +56,9 @@ export function Select({
     setData(nextData)
   }
 
+  const singles = matches?.filter((match) => !match.teamA.team.player2)
+  const doubles = matches?.filter((match) => !!match.teamA.team.player2)
+
   return (
     <Wrapper>
       <Section marginBottom="10px">
@@ -71,22 +74,47 @@ export function Select({
               onSubmit={postColors}
             />
           ) : (
-            <Matches>
-              {matches?.map((match) => {
-                return (
-                  <Match 
-                    {...match} 
-                    key={match.eventId} 
-                    onClick={selectMatch} 
-                  />
-                )
-              })}
-            </Matches>
-          )}
+            <>
+              <Header>
+                {'Singles Matches'}
+              </Header>
+              <Matches>
+                {singles?.map((match) => {
+                  return (
+                    <Match
+                      {...match}
+                      key={match.eventId}
+                      onClick={selectMatch} />
+                  )
+                })}
+              </Matches>
+              <Header>
+                {'Doubles Matches'}
+              </Header>
+              <Matches>
+                {doubles?.map((match) => {
+                  return (
+                    <Match
+                      {...match}
+                      key={match.eventId}
+                      onClick={selectMatch} />
+                  )
+                })}
+              </Matches>
+            </>
+        )}
       </Body>
     </Wrapper>
   )
 }
+
+const Header = styled.div`
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  margin: 25px;
+`
 
 const Wrapper = styled.div`
   width: 100%;
@@ -95,11 +123,11 @@ const Wrapper = styled.div`
 const Matches = styled.div`
   width: 100%;
   gap: 15px;
-  padding: 8px 0;
   display: grid;
   grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
 `
 
 const Body = styled.div`
   margin: 0 15px;
+  padding-bottom: 15px;
 `

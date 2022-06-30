@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { COLORS } from "../colors";
 import { Player, PlayerType } from "./Player";
 
 export interface TeamType {
@@ -72,12 +73,12 @@ const Body = styled.div`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  border: 2px solid #702400;
+  border: 2px solid ${COLORS.green1};
   min-height: 50px;
   align-items: center;
   padding: 10px;
-  color: rgba(255,255,255,0.9);
-  background-color: #702400;
+
+  background-color: rgba(255,255,255,0.95);
   border-radius: 2px;
   cursor: pointer;
   overflow: hidden;
@@ -86,6 +87,7 @@ const Wrapper = styled.div`
 
   &:hover {
     border: 2px solid white;
+
   }
 
   &:active {
@@ -100,24 +102,23 @@ const Team = styled.div<{
   flex-direction: column;
   flex: 1;
   text-align: ${({ align }) => align};
-  gap: 5px;
+  gap: 10px;
 `
 
 const Versus = styled.span`
-  margin: 20px;
-  font-size: 13px;
-  font-weight: 100;
-  opacity: 0.5;
+  margin: 0 10px;
+  font-size: 14px;
+  color: grey;
 `
 
 const Header = styled.div`
   display: flex;
   padding-bottom: 8px;
   font-size: 13px;
-  color: #d64d0d;
+  color: grey;
   font-weight: 300;
   margin-bottom: 10px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(138, 158, 128, 0.2);
   width: 100%;
   justify-content: space-between;
   gap: 10px;
