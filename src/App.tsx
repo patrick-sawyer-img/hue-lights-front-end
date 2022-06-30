@@ -21,7 +21,11 @@ function App() {
   const getMatches = () => {
     fetch(API + 'dde/matches')
     .then(response => response.json())
-    .then(data => setMatches(data));
+    .then(data => setMatches(data))
+    .catch((response) => {
+      console.log(response)
+      alert('Something went wrong')
+    })
   }
 
   useEffect(() => {
@@ -41,9 +45,6 @@ function App() {
       {page === Pages.SELECT && (
         <Select
           matches={matches}
-          changePage={() => {
-            setPage(Pages.SETUP)
-          }} 
         />
       )}
     </Wrapper>

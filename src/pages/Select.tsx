@@ -7,7 +7,6 @@ import { Section } from "../components/Section"
 import { Title } from "../components/Title"
 
 interface Props {
-  changePage: () => void;
   matches: MatchType[];
 }
 
@@ -24,7 +23,6 @@ export const INIT_DATA = {
 }
 
 export function Select({
-  changePage,
   matches,
 }: Props) {
 
@@ -32,7 +30,7 @@ export function Select({
 
   const postColors = async () => {
     if (data.eventId && data.p1Colour && data.p2Colour) {
-      fetch(API + 'subscribe', {
+      fetch(API + 'dde/subscribe', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -42,11 +40,13 @@ export function Select({
       })
       .then((response) => {
         console.log(response)
-        // WHAT DO WE WANT TO DO AFTER SUCCESS
+        const newData = {...data}
+        newData.eventId = null
+        setData(newData)
       })
       .catch((response) => {
         console.log(response)
-        // WHAT DO WE WANT TO DO AFTER FAILURE
+        alert('Something went wrong')
       })
     }
   }

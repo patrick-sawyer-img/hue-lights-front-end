@@ -43,13 +43,12 @@ export function Setup({
         'Content-Type': 'application/json'
       },
     })
-    .then((response) => {
-      console.log(response)
+    .then(() => {
       changePage()
     })
     .catch((response) => {
       console.log(response)
-      // WHAT DO WE WANT TO DO AFTER FAILURE
+      alert('Something went wrong')
     })
 
     return {

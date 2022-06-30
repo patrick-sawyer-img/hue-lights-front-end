@@ -1,6 +1,5 @@
 import { useState } from "react";
 import styled from "styled-components"
-import { COLORS } from "../colors";
 
 export interface Api {
   success: boolean;
@@ -34,7 +33,6 @@ export function Action({
   const handleClick = async () => {
     if (state !== States.IDLE || disabled) return
     setState(States.LOADING)
-    setCurrentText('')
     const { response, success } = await onClick()
     setCurrentText(response)
     setState(success ? States.SUCCESS : States.FAILED)
