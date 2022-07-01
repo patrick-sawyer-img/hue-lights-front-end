@@ -24,9 +24,14 @@ export function Setup({
   const findLights = async () => {
     const response = await fetch(API + 'hue/lights')
     .then(data => data.json())
-    const data: Light[]= Object.values(response)
+    const data: Light[] = Object.keys(response).map((key) => {
+      return {
+        ...response[key],
+        number: key,
+      }
+    })
     setLights(data)
-
+    console.log(data)
     return {
       success: true,
       response:`Found ${data.length} lights`
@@ -34,6 +39,7 @@ export function Setup({
   }
 
   const selectLight = async (data: Light) => {
+    console.log('post', data)
     await fetch(API + 'hue/lights', {
       method: 'POST',
       body: JSON.stringify(data),
